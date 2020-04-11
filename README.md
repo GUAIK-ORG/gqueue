@@ -33,7 +33,7 @@ let gqueue = new GQueue(function (owner, data) {
 
 // 模拟产生消息
 for (let i = 0; i < 50; i++) {
-    if (gqueue.canRecvWrite()) {
+    if (gqueue.canWrite()) {
         gqueue.product(0,"product:" + i);
     }
 }
