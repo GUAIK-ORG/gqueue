@@ -67,7 +67,7 @@ var GQueue = /** @class */ (function () {
         this.checkUnique = b;
     };
     // 判断队列是否可写入
-    GQueue.prototype.canRecvWrite = function () {
+    GQueue.prototype.canWrite = function () {
         return (this.queue.length < this.maxLen || this.maxLen == -1);
     };
     // 设置拥有者
@@ -82,7 +82,7 @@ var gqueue = new GQueue(function (owner, data) {
 }, 10, 10);
 // 模拟产生消息
 for (var i = 0; i < 50; i++) {
-    if (gqueue.canRecvWrite()) {
+    if (gqueue.canWrite()) {
         gqueue.product(0, "product:" + i);
     }
 }

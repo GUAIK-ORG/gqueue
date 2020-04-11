@@ -83,7 +83,7 @@ class GQueue {
     }
 
     // 判断队列是否可写入
-    canRecvWrite():boolean {
+    canWrite():boolean {
         return (this.queue.length < this.maxLen || this.maxLen == -1);
     }
     // 设置拥有者
@@ -99,7 +99,7 @@ let gqueue = new GQueue(function (owner, data) {
 
 // 模拟产生消息
 for (let i = 0; i < 50; i++) {
-    if (gqueue.canRecvWrite()) {
+    if (gqueue.canWrite()) {
         gqueue.product(0,"product:" + i);
     }
 }
